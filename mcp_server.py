@@ -5,8 +5,7 @@ import datetime
 
 from settings import MCP_HOST, MCP_LOG_LEVEL, MCP_PATH, MCP_PORT, MCP_TRANSPORT, logger
 
-from lib.mcp_init import mcp
-
+from lib.rest.register_tools import mcp
 
 if __name__ == "__main__":
     ts = datetime.datetime.now().isoformat()

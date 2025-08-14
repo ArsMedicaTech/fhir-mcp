@@ -27,3 +27,11 @@ MCP_TRANSPORT: TransportType = typing.cast(TransportType, MCP_TRANSPORT_STRING)
 MCP_PORT: int = int(os.getenv("MCP_PORT", "9000"))
 MCP_PATH: str = os.getenv("MCP_PATH", "/mcp")
 MCP_LOG_LEVEL: str = os.getenv("MCP_LOG_LEVEL", "debug")
+
+
+FHIR_REST_HOST: str = os.getenv("FHIR_REST_HOST", "localhost")
+FHIR_REST_PORT: int = int(os.getenv("FHIR_REST_PORT", "8080"))
+FHIR_REST_PATH: str = os.getenv("FHIR_REST_PATH", "/fhir")
+
+FHIR_GRPC_HOST: str = os.getenv("FHIR_GRPC_HOST", "fhir.arsmedicatech.com")
+FHIR_GRPC_PORT: int = int(os.getenv("FHIR_GRPC_PORT", "443"))

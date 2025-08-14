@@ -12,4 +12,7 @@ if __name__ == "__main__":
     ts = datetime.datetime.now().isoformat()
     logger.debug(f"Starting FHIR MCP server at {ts}...")
 
-    mcp.run(transport=MCP_TRANSPORT, host=MCP_HOST, port=MCP_PORT, path=MCP_PATH, log_level=MCP_LOG_LEVEL)
+    allowed_transports = {'stdio', 'http', 'sse', 'streamable-http'}
+    transport = MCP_TRANSPORT if MCP_TRANSPORT in allowed_transports else None
+    
+    mcp.run(transport=transport, host=MCP_HOST, port=MCP_PORT, path=MCP_PATH, log_level=MCP_LOG_LEVEL)

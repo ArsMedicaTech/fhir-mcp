@@ -12,7 +12,7 @@ Currently only implementing `GET` requests for what to me should be pretty obvio
 
 #### Inspector
 
-1. Start a temporary port forward: `kubectl port-forward -n arsmedicatech service/mcp-server 9000:80`.
+1. Start a temporary port forward (if deployed to Kubernetes): `kubectl port-forward -n arsmedicatech service/fhir-mcp 9000:80`.
 2. Run the inspector client: `npx @modelcontextprotocol/inspector@0.14.0`.
 3. Navigate to the URL. Something like this: http://127.0.0.1:6274/#tools
 4. Enter the URL: http://127.0.0.1:9000/mcp.

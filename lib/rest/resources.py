@@ -75,3 +75,16 @@ class Encounter(Request):
         """
         return self.send("Encounter", _id, _version, _format=_format, _pretty=_pretty)
 
+class Appointment(Request):
+    def __init__(self, host: str, port: int, path: str) -> None:
+        super().__init__(host, port, path)
+
+    def get_appointment(self, _id: str, _version: int, _format: str = 'json', _pretty: bool = True):
+        """
+        Get an appointment resource.
+        :param _id: The ID of the appointment.
+        :param _version: The version of the appointment.
+        :param _format: The format for the response (default: 'json').
+        :param _pretty: Whether to pretty-print the response (default: True).
+        """
+        return self.send("Appointment", _id, _version, _format=_format, _pretty=_pretty)

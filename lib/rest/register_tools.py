@@ -64,3 +64,16 @@ def get_encounter(_id: str, _version: int, _format: str = 'json', _pretty: bool 
     """
     encounter = Encounter(FHIR_REST_HOST, FHIR_REST_PORT, FHIR_REST_PATH)
     return encounter.get_encounter(_id, _version, _format=_format, _pretty=_pretty)
+
+@mcp.tool
+def get_appointment(_id: str, _version: int, _format: str = 'json', _pretty: bool = True):
+    """
+    Get an appointment resource.
+    :param _id: The ID of the appointment.
+    :param _version: The version of the appointment.
+    :param _format: The format for the response (default: 'json').
+    :param _pretty: Whether to pretty-print the response (default: True).
+    """
+    from lib.rest.resources import Appointment
+    appointment = Appointment(FHIR_REST_HOST, FHIR_REST_PORT, FHIR_REST_PATH)
+    return appointment.get_appointment(_id, _version, _format=_format, _pretty=_pretty)

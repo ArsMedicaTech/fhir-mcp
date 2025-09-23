@@ -4,7 +4,9 @@ Model Context Protocol server for FHIR resources.
 
 Handles REST and gRPC requests.
 
-Currently only implementing `GET` requests for what to me should be pretty obvious reasons when it comes to LLMs, and especially LLMs that are handling medical data.
+~~Currently only implementing `GET` requests for what to me should be pretty obvious reasons when it comes to LLMs, and especially LLMs that are handling medical data~~.
+
+Since this can be used for any FHIR enabled system, and since an MCP can be used without an LLM, I've added support for `POST` requests as well.
 
 ## MCP (Model Context Protocol)
 

@@ -7,9 +7,19 @@ from fastmcp.server.middleware.timing import TimingMiddleware
 from starlette.requests import Request
 from starlette.responses import PlainTextResponse
 
-from settings import logger
+from settings import EXCLUDE_TAGS, INCLUDE_TAGS, logger
 
-mcp: FastMCP[Context] = FastMCP("FHIR MCP Server")
+def mcp_factory() -> FastMCP[Context]:
+    if type(INCLUDE_TAGS) is set and type(EXCLUDE_TAGS) is set:
+        return FastMCP("FHIR MCP Server", include_tags=INCLUDE_TAGS, exclude_tags=EXCLUDE_TAGS)
+    elif type(INCLUDE_TAGS) is set:
+        return FastMCP("FHIR MCP Server", include_tags=INCLUDE_TAGS)
+    elif type(EXCLUDE_TAGS) is set:
+        return FastMCP("FHIR MCP Server", exclude_tags=EXCLUDE_TAGS)
+    else:
+        return FastMCP("FHIR MCP Server")
+
+mcp: FastMCP[Context] = mcp_factory()
 
 # plug‑in generic middleware
 mcp.add_middleware(TimingMiddleware())

@@ -5,7 +5,7 @@ from lib.mcp_init import mcp
 from lib.rest.resources import Encounter, Observation, Patient, Procedure, Condition
 from settings import FHIR_REST_HOST, FHIR_REST_PORT, FHIR_REST_PATH
 
-@mcp.tool
+@mcp.tool(tags={"observation", "read"})
 def get_observation(_id: str, _version: int, _format: str = 'json', _pretty: bool = True):
     """
     Get an observation resource.
@@ -17,7 +17,7 @@ def get_observation(_id: str, _version: int, _format: str = 'json', _pretty: boo
     observation = Observation(FHIR_REST_HOST, FHIR_REST_PORT, FHIR_REST_PATH)
     return observation.get_observation(_id, _version, _format=_format, _pretty=_pretty)
 
-@mcp.tool
+@mcp.tool(tags={"procedure", "read"})
 def get_procedure(_id: str, _version: int, _format: str = 'json', _pretty: bool = True):
     """
     Get a procedure resource.
@@ -29,7 +29,7 @@ def get_procedure(_id: str, _version: int, _format: str = 'json', _pretty: bool 
     procedure = Procedure(FHIR_REST_HOST, FHIR_REST_PORT, FHIR_REST_PATH)
     return procedure.get_procedure(_id, _version, _format=_format, _pretty=_pretty)
 
-@mcp.tool
+@mcp.tool(tags={"patient", "read"})
 def get_patient(_id: str, _version: int, _format: str = 'json', _pretty: bool = True):
     """
     Get a patient resource.
@@ -41,7 +41,7 @@ def get_patient(_id: str, _version: int, _format: str = 'json', _pretty: bool = 
     patient = Patient(FHIR_REST_HOST, FHIR_REST_PORT, FHIR_REST_PATH)
     return patient.get_patient(_id, _version, _format=_format, _pretty=_pretty)
 
-@mcp.tool
+@mcp.tool(tags={"condition", "read"})
 def get_condition(_id: str, _version: int, _format: str = 'json', _pretty: bool = True):
     """
     Get a condition resource.
@@ -53,7 +53,7 @@ def get_condition(_id: str, _version: int, _format: str = 'json', _pretty: bool 
     condition = Condition(FHIR_REST_HOST, FHIR_REST_PORT, FHIR_REST_PATH)
     return condition.get_condition(_id, _version, _format=_format, _pretty=_pretty)
 
-@mcp.tool
+@mcp.tool(tags={"encounter", "read"})
 def get_encounter(_id: str, _version: int, _format: str = 'json', _pretty: bool = True):
     """
     Get an encounter resource.
@@ -65,7 +65,7 @@ def get_encounter(_id: str, _version: int, _format: str = 'json', _pretty: bool 
     encounter = Encounter(FHIR_REST_HOST, FHIR_REST_PORT, FHIR_REST_PATH)
     return encounter.get_encounter(_id, _version, _format=_format, _pretty=_pretty)
 
-@mcp.tool
+@mcp.tool(tags={"appointment", "read"})
 def get_appointment(_id: str, _version: int, _format: str = 'json', _pretty: bool = True):
     """
     Get an appointment resource.
@@ -79,7 +79,7 @@ def get_appointment(_id: str, _version: int, _format: str = 'json', _pretty: boo
     return appointment.get_appointment(_id, _version, _format=_format, _pretty=_pretty)
 
 # Latest version read operations
-@mcp.tool
+@mcp.tool(tags={"observation", "read"})
 def get_observation_latest(_id: str, _format: str = 'json', _pretty: bool = True):
     """
     Get the latest version of an observation resource.
@@ -90,7 +90,7 @@ def get_observation_latest(_id: str, _format: str = 'json', _pretty: bool = True
     observation = Observation(FHIR_REST_HOST, FHIR_REST_PORT, FHIR_REST_PATH)
     return observation.get_observation_latest(_id, _format=_format, _pretty=_pretty)
 
-@mcp.tool
+@mcp.tool(tags={"procedure", "read"})
 def get_procedure_latest(_id: str, _format: str = 'json', _pretty: bool = True):
     """
     Get the latest version of a procedure resource.
@@ -101,7 +101,7 @@ def get_procedure_latest(_id: str, _format: str = 'json', _pretty: bool = True):
     procedure = Procedure(FHIR_REST_HOST, FHIR_REST_PORT, FHIR_REST_PATH)
     return procedure.get_procedure_latest(_id, _format=_format, _pretty=_pretty)
 
-@mcp.tool
+@mcp.tool(tags={"patient", "read"})
 def get_patient_latest(_id: str, _format: str = 'json', _pretty: bool = True):
     """
     Get the latest version of a patient resource.
@@ -112,7 +112,7 @@ def get_patient_latest(_id: str, _format: str = 'json', _pretty: bool = True):
     patient = Patient(FHIR_REST_HOST, FHIR_REST_PORT, FHIR_REST_PATH)
     return patient.get_patient_latest(_id, _format=_format, _pretty=_pretty)
 
-@mcp.tool
+@mcp.tool(tags={"condition", "read"})
 def get_condition_latest(_id: str, _format: str = 'json', _pretty: bool = True):
     """
     Get the latest version of a condition resource.
@@ -123,7 +123,7 @@ def get_condition_latest(_id: str, _format: str = 'json', _pretty: bool = True):
     condition = Condition(FHIR_REST_HOST, FHIR_REST_PORT, FHIR_REST_PATH)
     return condition.get_condition_latest(_id, _format=_format, _pretty=_pretty)
 
-@mcp.tool
+@mcp.tool(tags={"encounter", "read"})
 def get_encounter_latest(_id: str, _format: str = 'json', _pretty: bool = True):
     """
     Get the latest version of an encounter resource.
@@ -134,7 +134,7 @@ def get_encounter_latest(_id: str, _format: str = 'json', _pretty: bool = True):
     encounter = Encounter(FHIR_REST_HOST, FHIR_REST_PORT, FHIR_REST_PATH)
     return encounter.get_encounter_latest(_id, _format=_format, _pretty=_pretty)
 
-@mcp.tool
+@mcp.tool(tags={"appointment", "read"})
 def get_appointment_latest(_id: str, _format: str = 'json', _pretty: bool = True):
     """
     Get the latest version of an appointment resource.
@@ -147,7 +147,7 @@ def get_appointment_latest(_id: str, _format: str = 'json', _pretty: bool = True
     return appointment.get_appointment_latest(_id, _format=_format, _pretty=_pretty)
 
 # Create operations
-@mcp.tool
+@mcp.tool(tags={"observation", "create"})
 def create_observation(data: dict, _format: str = 'json', _pretty: bool = True):
     """
     Create a new observation resource.
@@ -158,7 +158,7 @@ def create_observation(data: dict, _format: str = 'json', _pretty: bool = True):
     observation = Observation(FHIR_REST_HOST, FHIR_REST_PORT, FHIR_REST_PATH)
     return observation.create_observation(data, _format=_format, _pretty=_pretty)
 
-@mcp.tool
+@mcp.tool(tags={"procedure", "create"})
 def create_procedure(data: dict, _format: str = 'json', _pretty: bool = True):
     """
     Create a new procedure resource.
@@ -169,7 +169,7 @@ def create_procedure(data: dict, _format: str = 'json', _pretty: bool = True):
     procedure = Procedure(FHIR_REST_HOST, FHIR_REST_PORT, FHIR_REST_PATH)
     return procedure.create_procedure(data, _format=_format, _pretty=_pretty)
 
-@mcp.tool
+@mcp.tool(tags={"patient", "create"})
 def create_patient(data: dict, _format: str = 'json', _pretty: bool = True):
     """
     Create a new patient resource.
@@ -180,7 +180,7 @@ def create_patient(data: dict, _format: str = 'json', _pretty: bool = True):
     patient = Patient(FHIR_REST_HOST, FHIR_REST_PORT, FHIR_REST_PATH)
     return patient.create_patient(data, _format=_format, _pretty=_pretty)
 
-@mcp.tool
+@mcp.tool(tags={"condition", "create"})
 def create_condition(data: dict, _format: str = 'json', _pretty: bool = True):
     """
     Create a new condition resource.
@@ -191,7 +191,7 @@ def create_condition(data: dict, _format: str = 'json', _pretty: bool = True):
     condition = Condition(FHIR_REST_HOST, FHIR_REST_PORT, FHIR_REST_PATH)
     return condition.create_condition(data, _format=_format, _pretty=_pretty)
 
-@mcp.tool
+@mcp.tool(tags={"encounter", "create"})
 def create_encounter(data: dict, _format: str = 'json', _pretty: bool = True):
     """
     Create a new encounter resource.
@@ -202,7 +202,7 @@ def create_encounter(data: dict, _format: str = 'json', _pretty: bool = True):
     encounter = Encounter(FHIR_REST_HOST, FHIR_REST_PORT, FHIR_REST_PATH)
     return encounter.create_encounter(data, _format=_format, _pretty=_pretty)
 
-@mcp.tool
+@mcp.tool(tags={"appointment", "create"})
 def create_appointment(data: dict, _format: str = 'json', _pretty: bool = True):
     """
     Create a new appointment resource.
@@ -215,7 +215,7 @@ def create_appointment(data: dict, _format: str = 'json', _pretty: bool = True):
     return appointment.create_appointment(data, _format=_format, _pretty=_pretty)
 
 # Update operations
-@mcp.tool
+@mcp.tool(tags={"observation", "update"})
 def update_observation(_id: str, data: dict, if_match: str = None, _format: str = 'json', _pretty: bool = True):
     """
     Update an existing observation resource.
@@ -228,7 +228,7 @@ def update_observation(_id: str, data: dict, if_match: str = None, _format: str 
     observation = Observation(FHIR_REST_HOST, FHIR_REST_PORT, FHIR_REST_PATH)
     return observation.update_observation(_id, data, if_match=if_match, _format=_format, _pretty=_pretty)
 
-@mcp.tool
+@mcp.tool(tags={"procedure", "update"})
 def update_procedure(_id: str, data: dict, if_match: str = None, _format: str = 'json', _pretty: bool = True):
     """
     Update an existing procedure resource.
@@ -241,7 +241,7 @@ def update_procedure(_id: str, data: dict, if_match: str = None, _format: str = 
     procedure = Procedure(FHIR_REST_HOST, FHIR_REST_PORT, FHIR_REST_PATH)
     return procedure.update_procedure(_id, data, if_match=if_match, _format=_format, _pretty=_pretty)
 
-@mcp.tool
+@mcp.tool(tags={"patient", "update"})
 def update_patient(_id: str, data: dict, if_match: str = None, _format: str = 'json', _pretty: bool = True):
     """
     Update an existing patient resource.
@@ -254,7 +254,7 @@ def update_patient(_id: str, data: dict, if_match: str = None, _format: str = 'j
     patient = Patient(FHIR_REST_HOST, FHIR_REST_PORT, FHIR_REST_PATH)
     return patient.update_patient(_id, data, if_match=if_match, _format=_format, _pretty=_pretty)
 
-@mcp.tool
+@mcp.tool(tags={"condition", "update"})
 def update_condition(_id: str, data: dict, if_match: str = None, _format: str = 'json', _pretty: bool = True):
     """
     Update an existing condition resource.
@@ -267,7 +267,7 @@ def update_condition(_id: str, data: dict, if_match: str = None, _format: str = 
     condition = Condition(FHIR_REST_HOST, FHIR_REST_PORT, FHIR_REST_PATH)
     return condition.update_condition(_id, data, if_match=if_match, _format=_format, _pretty=_pretty)
 
-@mcp.tool
+@mcp.tool(tags={"encounter", "update"})
 def update_encounter(_id: str, data: dict, if_match: str = None, _format: str = 'json', _pretty: bool = True):
     """
     Update an existing encounter resource.
@@ -280,7 +280,7 @@ def update_encounter(_id: str, data: dict, if_match: str = None, _format: str = 
     encounter = Encounter(FHIR_REST_HOST, FHIR_REST_PORT, FHIR_REST_PATH)
     return encounter.update_encounter(_id, data, if_match=if_match, _format=_format, _pretty=_pretty)
 
-@mcp.tool
+@mcp.tool(tags={"appointment", "update"})
 def update_appointment(_id: str, data: dict, if_match: str = None, _format: str = 'json', _pretty: bool = True):
     """
     Update an existing appointment resource.
@@ -295,7 +295,7 @@ def update_appointment(_id: str, data: dict, if_match: str = None, _format: str 
     return appointment.update_appointment(_id, data, if_match=if_match, _format=_format, _pretty=_pretty)
 
 # Delete operations
-@mcp.tool
+@mcp.tool(tags={"observation", "delete"})
 def delete_observation(_id: str, _format: str = 'json'):
     """
     Delete an observation resource.
@@ -305,7 +305,7 @@ def delete_observation(_id: str, _format: str = 'json'):
     observation = Observation(FHIR_REST_HOST, FHIR_REST_PORT, FHIR_REST_PATH)
     return observation.delete_observation(_id, _format=_format)
 
-@mcp.tool
+@mcp.tool(tags={"procedure", "delete"})
 def delete_procedure(_id: str, _format: str = 'json'):
     """
     Delete a procedure resource.
@@ -315,7 +315,7 @@ def delete_procedure(_id: str, _format: str = 'json'):
     procedure = Procedure(FHIR_REST_HOST, FHIR_REST_PORT, FHIR_REST_PATH)
     return procedure.delete_procedure(_id, _format=_format)
 
-@mcp.tool
+@mcp.tool(tags={"patient", "delete"})
 def delete_patient(_id: str, _format: str = 'json'):
     """
     Delete a patient resource.
@@ -325,7 +325,7 @@ def delete_patient(_id: str, _format: str = 'json'):
     patient = Patient(FHIR_REST_HOST, FHIR_REST_PORT, FHIR_REST_PATH)
     return patient.delete_patient(_id, _format=_format)
 
-@mcp.tool
+@mcp.tool(tags={"condition", "delete"})
 def delete_condition(_id: str, _format: str = 'json'):
     """
     Delete a condition resource.
@@ -335,7 +335,7 @@ def delete_condition(_id: str, _format: str = 'json'):
     condition = Condition(FHIR_REST_HOST, FHIR_REST_PORT, FHIR_REST_PATH)
     return condition.delete_condition(_id, _format=_format)
 
-@mcp.tool
+@mcp.tool(tags={"encounter", "delete"})
 def delete_encounter(_id: str, _format: str = 'json'):
     """
     Delete an encounter resource.
@@ -345,7 +345,7 @@ def delete_encounter(_id: str, _format: str = 'json'):
     encounter = Encounter(FHIR_REST_HOST, FHIR_REST_PORT, FHIR_REST_PATH)
     return encounter.delete_encounter(_id, _format=_format)
 
-@mcp.tool
+@mcp.tool(tags={"appointment", "delete"})
 def delete_appointment(_id: str, _format: str = 'json'):
     """
     Delete an appointment resource.
